@@ -1,0 +1,6 @@
+.settings-page form{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:20px}
+.settings-page form label,.settings-page form input,.settings-page form select{width:100%;min-width:0}
+.settings-page form button{justify-self:start}
+.settings-page .hero{padding-top:32px;padding-bottom:32px}
+.settings-page .hero h1{font-size:40px}
+.settings-page #engineer-form,.settings-page #transcriber-form{border-top:1px solid var(--line);padding-top:18px;margin-top:24px}

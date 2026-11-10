@@ -1,0 +1,19 @@
+SCRUNCH INTELLIGENCE - READ ME FIRST
+
+1. Double-click "1 Set up Scrunch (once)". It installs everything: Mixing, the Scrunch HUD over Live,
+   Audio-to-MIDI and Hum-to-MIDI, and the Scrunch Bridge for Ableton Live. Allow 15-40 minutes (the
+   Audio-to-MIDI model is a 5.5 GB download; setup tells you how to get the free Hugging Face token it needs).
+2. At the end it opens START SCRUNCH and puts it in your Dock (orange Scrunch logo, the word START).
+   That is your start button: click it any time to open Scrunch in your web browser.
+   Closed the browser? Click Start Scrunch again and the page comes back.
+3. The first time, Scrunch opens its Settings page: add your engineer (AI) key and voice there.
+4. In Ableton Live, once: quit Live and open it again, then Live > Settings > Link, Tempo & MIDI,
+   choose ScrunchBridge in an empty Control Surface slot (Input and Output: None).
+
+The first time you open each one, macOS may say it is from an unidentified developer.
+Right-click (or Control-click) it, choose Open, then Open again. You only do this once.
+The HUD asks for Accessibility (to follow the Live window) and Microphone (hold space to talk) the first time.
+
+Keep this folder where it is (Documents is fine): Start Scrunch runs the copy inside it.
+To remove everything: double-click "Uninstall Scrunch" and type yes. Your music and Sets are never touched.
+More detail: Details.md

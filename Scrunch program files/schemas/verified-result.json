@@ -1,0 +1,147 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_identity": {
+      "anyOf": [
+        {
+          "$ref": "common.json#/$defs/target"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "start_revision": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cancel_requested": {
+      "type": "boolean"
+    },
+    "result_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "end_revision": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "verified",
+        "partial",
+        "failed",
+        "cancelled",
+        "no_action",
+        "conflict"
+      ]
+    },
+    "prewrite_checks": {
+      "type": "object",
+      "properties": {
+        "target_matches": {
+          "type": "boolean"
+        },
+        "revision_matches": {
+          "type": "boolean"
+        },
+        "cancel_clear": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "target_matches",
+        "revision_matches",
+        "cancel_clear"
+      ],
+      "additionalProperties": false
+    },
+    "partial_write": {
+      "type": "boolean"
+    },
+    "writes": {
+      "type": "array",
+      "items": {
+        "$ref": "common.json#/$defs/write"
+      },
+      "minItems": 0
+    },
+    "restore_data": {
+      "anyOf": [
+        {
+          "$ref": "common.json#/$defs/restore"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "measurements": {
+      "type": "array",
+      "items": {
+        "$ref": "common.json#/$defs/observation"
+      },
+      "minItems": 0
+    },
+    "inferences": {
+      "type": "array",
+      "items": {
+        "$ref": "common.json#/$defs/observation"
+      },
+      "minItems": 0
+    },
+    "failure_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "latency_ms": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "cost_usd": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "request_id",
+    "target_identity",
+    "start_revision",
+    "cancel_requested",
+    "result_id",
+    "end_revision",
+    "status",
+    "prewrite_checks",
+    "partial_write",
+    "writes",
+    "restore_data",
+    "measurements",
+    "inferences",
+    "failure_reason",
+    "latency_ms",
+    "cost_usd"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scrunch.local/contracts/v1/verified-result.json"
+}

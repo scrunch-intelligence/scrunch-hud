@@ -1,0 +1,167 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_identity": {
+      "anyOf": [
+        {
+          "$ref": "common.json#/$defs/target"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "start_revision": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cancel_requested": {
+      "type": "boolean"
+    },
+    "user_words": {
+      "type": "string",
+      "minLength": 1
+    },
+    "interpreted_intent": {
+      "type": "string",
+      "minLength": 1
+    },
+    "action": {
+      "enum": [
+        "change",
+        "no_action"
+      ]
+    },
+    "reference_target": {
+      "anyOf": [
+        {
+          "$ref": "common.json#/$defs/reference"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "$ref": "common.json#/$defs/change"
+      },
+      "minItems": 0
+    },
+    "expected_measurable_effect": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "uncertainty": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "question_required": {
+      "type": "boolean"
+    },
+    "question": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "explanation_draft": {
+      "type": "string",
+      "minLength": 1
+    },
+    "undo_plan": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "no_action_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "request_id",
+    "target_identity",
+    "start_revision",
+    "cancel_requested",
+    "user_words",
+    "interpreted_intent",
+    "action",
+    "reference_target",
+    "changes",
+    "expected_measurable_effect",
+    "uncertainty",
+    "question_required",
+    "question",
+    "explanation_draft",
+    "undo_plan",
+    "no_action_reason"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "action": {
+            "const": "change"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "target_identity": {
+            "$ref": "common.json#/$defs/target"
+          },
+          "start_revision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "changes": {
+            "type": "array",
+            "items": {
+              "$ref": "common.json#/$defs/change"
+            },
+            "minItems": 1
+          },
+          "undo_plan": {
+            "type": "string",
+            "minLength": 1
+          },
+          "no_action_reason": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "changes": {
+            "maxItems": 0
+          },
+          "no_action_reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scrunch.local/contracts/v1/action-proposal.json"
+}

@@ -1,0 +1,88 @@
+{
+  "status": "Preview",
+  "modes": [
+    {
+      "name": "Sound Design",
+      "symbol": "waveform",
+      "title": "No proposal yet",
+      "detail": "",
+      "changes": [],
+      "explanation": "",
+      "alternatives": []
+    },
+    {
+      "name": "Mixing",
+      "symbol": "slider.horizontal.3",
+      "title": "No proposal yet",
+      "detail": "",
+      "changes": [],
+      "explanation": "",
+      "alternatives": []
+    },
+    {
+      "name": "MIDI",
+      "symbol": "pianokeys",
+      "title": "No proposal yet",
+      "detail": "",
+      "changes": [],
+      "explanation": "",
+      "alternatives": []
+    }
+  ],
+  "target": {
+    "instrument": "",
+    "track": "",
+    "preset": ""
+  },
+  "spectrum": {
+    "label": "Spectrum",
+    "peak": "-8.3 dB",
+    "lufs": "-9.1",
+    "rms": "-12.4",
+    "bins": [
+      0.13,
+      0.23,
+      0.47,
+      0.68,
+      0.55,
+      0.82,
+      0.71,
+      0.52,
+      0.66,
+      0.59,
+      0.76,
+      0.5,
+      0.47,
+      0.6,
+      0.43,
+      0.35,
+      0.47,
+      0.31,
+      0.29,
+      0.42,
+      0.28,
+      0.22,
+      0.18,
+      0.24,
+      0.18,
+      0.12,
+      0.16,
+      0.1,
+      0.07,
+      0.09,
+      0.05,
+      0.04
+    ]
+  },
+  "responses": {
+    "Audition": "Audition selected - preview",
+    "More": "More selected - preview",
+    "Less": "Less selected - preview",
+    "Revert": "Original selected - preview",
+    "Keep": "Keep selected - preview",
+    "A": "Alternative A - preview",
+    "B": "Alternative B - preview",
+    "Neither": "Neither selected - preview"
+  },
+  "dashboard_url": "http://127.0.0.1:3351"
+}

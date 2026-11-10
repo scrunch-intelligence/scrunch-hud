@@ -1,0 +1,43 @@
+:root{--bg:#141414;--panel:#1f1f1f;--line:#333;--text:#eee;--dim:#9a9a9a;--accent:#f0a030;--good:#5bc27a;--bad:#e5645c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.45 -apple-system,system-ui,sans-serif}
+header{display:flex;gap:16px;align-items:baseline;padding:14px 20px;border-bottom:1px solid var(--line)}
+header h1{font-size:20px;margin:0}header span{color:var(--dim)}
+main{display:grid;grid-template-columns:320px 1fr;min-height:calc(100vh - 56px)}
+#knobs{border-right:1px solid var(--line);overflow:auto;max-height:calc(100vh - 56px)}
+#filter{width:100%;padding:10px 14px;background:var(--panel);border:0;border-bottom:1px solid var(--line);color:var(--text);font-size:15px}
+.knob{padding:8px 14px;border-bottom:1px solid #262626;cursor:pointer;display:flex;justify-content:space-between;gap:8px}
+.knob:hover{background:#242424}.knob.sel{background:#2d2616;border-left:3px solid var(--accent)}
+.knob small{color:var(--dim);white-space:nowrap}.knob.nolesson{color:#bbb}
+#stage{padding:24px 32px;display:flex;flex-direction:column;gap:18px}
+#title{font-size:28px;font-weight:600}#value{font-size:44px;font-variant-numeric:tabular-nums;color:var(--accent)}
+#lesson{font-size:19px;max-width:760px;min-height:56px}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+button{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:14px 18px;font-size:17px;cursor:pointer;min-width:120px}
+button:hover{border-color:#555}button.big{font-size:22px;padding:22px 30px;min-width:220px}
+button.stop{background:#3a2412;border-color:var(--accent)}button.play{background:#16301f;border-color:var(--good)}
+kbd{font:12px ui-monospace,monospace;color:var(--dim);display:block;margin-top:2px}
+#status{color:var(--dim);min-height:24px}#status.err{color:var(--bad)}
+#words{flex:1;min-width:260px;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:16px}
+#start{border-bottom:2px solid var(--line)}#soundq{width:100%;padding:10px 14px;background:#1a1a1a;border:0;color:var(--text);font-size:15px}
+#sounds{max-height:220px;overflow:auto}.sound{padding:7px 14px;cursor:pointer;border-top:1px solid #262626}.sound:hover{background:#242424}
+.sound small{display:block;color:var(--dim)}.sound .heart{color:#e5645c}
+.dial{display:flex;flex-direction:column;gap:6px}
+.dial button{min-width:190px}
+.dial.ab button.playing{border-color:var(--accent);background:#2d2616}
+.dial.ab span{color:var(--dim);font-variant-numeric:tabular-nums}
+.ask{align-items:stretch}#ask{flex:1;min-width:320px;padding:14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:18px}
+button.go{background:#16301f;border-color:var(--good)}
+#moved{display:flex;flex-direction:column;gap:6px;font-size:17px}
+#moved div{color:var(--text)}#moved small{color:var(--dim)}
+#knobwork{color:var(--dim);border-top:1px solid var(--line);padding-top:10px}
+#knobwork summary{cursor:pointer}
+#modewrap{margin-left:auto;color:var(--dim);font-size:15px;display:flex;gap:6px;align-items:center;cursor:pointer}
+body.engineer #lesson,body.engineer #moved small,body.engineer .knob small.lessonhint{display:none}
+body.engineer #moved div span.why{display:none}
+#learned{color:var(--dim);font-size:15px;line-height:1.6;border-top:1px solid var(--line);padding-top:10px}
+body.engineer #learned{display:none}
+
+#instances{margin:.4rem 0 .6rem}
+#instances button.inst{margin-left:.3rem;padding:.15rem .5rem;font-size:.85rem;opacity:.75}
+#instances button.inst.on{opacity:1;font-weight:600;outline:2px solid currentColor}
+#instances button.inst[disabled]{opacity:.35;cursor:not-allowed}

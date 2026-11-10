@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scrunch Sound Coach</title>
+<link rel="stylesheet" href="/coach.css">
+</head>
+<body>
+<header><h1>Sound Coach</h1><span id="session">connecting…</span><label id="modewrap"><input type="checkbox" id="learn"> Teaching mode</label></header>
+<div id="instances"></div>
+<main>
+<section id="knobs"><div id="start"><input id="soundq" placeholder="Start sound (♥ = your likes)" autocomplete="off"><div id="sounds"></div></div><input id="filter" placeholder="Find a knob" autocomplete="off"><div id="list"></div></section>
+<section id="stage">
+  <div id="title">Pick a knob</div>
+  <div id="value">—</div>
+  <div id="lesson">Press Space to play the loop, choose a knob, then sweep it and stop when it sounds right.</div>
+  <div class="row">
+    <button class="big play" id="play">Play / Stop<kbd>Space</kbd></button>
+    <button class="big stop" id="stop">That's it<kbd>Enter</kbd></button>
+  </div>
+  <div class="row">
+    <div class="dial">
+      <button id="up">▲ Sweep up<kbd>↑</kbd></button>
+      <button id="down">▼ Sweep down<kbd>↓</kbd></button>
+    </div>
+    <div class="dial">
+      <button id="back">Back a bit<kbd>←</kbd></button>
+      <button id="other">Other way<kbd>O</kbd></button>
+    </div>
+    <div class="dial ab">
+      <button id="a">A <span id="aval">—</span><kbd>A</kbd></button>
+      <button id="b">B <span id="bval">—</span><kbd>B</kbd></button>
+    </div>
+    <div class="dial">
+      <button id="ab">Set up A / B<kbd>T</kbd></button>
+      <button id="undo">Undo<kbd>U</kbd></button>
+    </div>
+  </div>
+  <div class="row ask">
+    <input id="ask" placeholder="Type your request">
+    <button class="big go" id="go">Do it<kbd>↵</kbd></button>
+  </div>
+  <div class="row" id="moverow">
+    <button id="more">More<kbd>+</kbd></button>
+    <button id="less">Less<kbd>-</kbd></button>
+    <button id="wrong">Wrong way<kbd>W</kbd></button>
+    <button id="revert">Revert<kbd>R</kbd></button>
+    <button id="keepmove">Keep it<kbd>K</kbd></button>
+    <button id="levels">Match level<kbd>L</kbd></button>
+    <button id="check">Check it<kbd>V</kbd></button>
+    <button id="save">Save this sound<kbd>S</kbd></button>
+  </div>
+  <div id="moved"></div>
+  <details id="knobwork"><summary>Work one knob by hand</summary>
+  <div class="row">
+    <input id="words" placeholder="In your words: what did that change do? (optional)">
+    <button id="keep">Keep knob</button>
+  </div>
+  </details>
+  <div id="status"></div>
+  <div id="learned"></div>
+</section>
+</main>
+<script src="/coach.js"></script>
+</body>
+</html>

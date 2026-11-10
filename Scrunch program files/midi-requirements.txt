@@ -1,0 +1,13 @@
+# Audio-to-MIDI (MuScriptor large) and Hum-to-MIDI (CREPE tiny) runtime, Apple Silicon, Python 3.12.
+# Versions are the ones Scrunch's own MuScriptor and humming runs use. Model weights are fetched separately by setup.
+muscriptor==0.3.0
+torch==2.14.0
+torchaudio==2.11.0
+beat-this==1.1.0
+rotary-embedding-torch==0.9.1
+pretty_midi==0.2.11.post0
+mido==1.3.3
+soundfile==0.14.0
+numpy==2.5.3
+librosa==1.0.0
+torchcrepe==0.0.24

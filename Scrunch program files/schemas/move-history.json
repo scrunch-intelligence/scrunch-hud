@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_identity": {
+      "$ref": "common.json#/$defs/target"
+    },
+    "start_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cancel_requested": {
+      "type": "boolean"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "$ref": "common.json#/$defs/change"
+      },
+      "minItems": 1
+    },
+    "partial_write": {
+      "type": "boolean"
+    },
+    "restore_data": {
+      "$ref": "common.json#/$defs/restore"
+    },
+    "verified_result": {
+      "$ref": "verified-result.json"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "schema_version",
+    "request_id",
+    "target_identity",
+    "start_revision",
+    "cancel_requested",
+    "id",
+    "sequence",
+    "evidence_ids",
+    "changes",
+    "partial_write",
+    "restore_data",
+    "verified_result",
+    "created_at"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scrunch.local/contracts/v1/move-history.json"
+}

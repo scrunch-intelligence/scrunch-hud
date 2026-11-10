@@ -1,0 +1,248 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scrunch.local/contracts/v1/common.json",
+  "$defs": {
+    "target": {
+      "type": "object",
+      "properties": {
+        "set_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "track_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "device_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "instance_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "plugin_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "set_id",
+        "track_id",
+        "device_id",
+        "instance_id",
+        "plugin_id"
+      ],
+      "additionalProperties": false
+    },
+    "mapping": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "range",
+            "values"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "minimum": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "maximum": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "values": {
+          "type": "array",
+          "items": {},
+          "minItems": 0
+        }
+      },
+      "required": [
+        "kind",
+        "source",
+        "unit",
+        "minimum",
+        "maximum",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "change": {
+      "type": "object",
+      "properties": {
+        "control_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "field_kind": {
+          "enum": [
+            "parameter",
+            "patch_field"
+          ]
+        },
+        "before": {},
+        "after": {},
+        "direction": {
+          "enum": [
+            "increase",
+            "decrease",
+            "set"
+          ]
+        },
+        "magnitude": {
+          "type": "number",
+          "minimum": 0
+        },
+        "mapping": {
+          "$ref": "common.json#/$defs/mapping"
+        }
+      },
+      "required": [
+        "control_id",
+        "field_kind",
+        "before",
+        "after",
+        "direction",
+        "magnitude",
+        "mapping"
+      ],
+      "additionalProperties": false
+    },
+    "restore": {
+      "type": "object",
+      "properties": {
+        "captured_before_write": {
+          "const": true
+        },
+        "state_revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "values": {
+          "type": "object",
+          "minProperties": 1
+        }
+      },
+      "required": [
+        "captured_before_write",
+        "state_revision",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "write": {
+      "type": "object",
+      "properties": {
+        "control_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "before": {},
+        "requested": {},
+        "readback": {},
+        "verified": {
+          "type": "boolean"
+        },
+        "error": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "control_id",
+        "before",
+        "requested",
+        "readback",
+        "verified",
+        "error"
+      ],
+      "additionalProperties": false
+    },
+    "observation": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "description",
+        "evidence_ids"
+      ],
+      "additionalProperties": false
+    },
+    "reference": {
+      "type": "object",
+      "properties": {
+        "reference_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "comparison_status": {
+          "enum": [
+            "not_measured",
+            "measured"
+          ]
+        },
+        "comparable_material": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "loudness_matched": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "reference_id",
+        "required",
+        "comparison_status",
+        "comparable_material",
+        "loudness_matched",
+        "evidence_ids"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

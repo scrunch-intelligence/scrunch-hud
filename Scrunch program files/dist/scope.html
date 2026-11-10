@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scrunch Scope</title>
+<link rel="stylesheet" href="/scope.css">
+</head>
+<body>
+<header>
+  <h1>Scope</h1>
+  <span id="status">connecting…</span>
+  <div class="controls">
+    <button id="run">Start</button>
+    <button id="freeze">Freeze</button>
+    <button id="identify" title="mute each tapped track for a moment to see which lane is which">Identify lanes</button>
+    <label>Window <select id="seconds">
+      <option value="1">1 s</option><option value="2" selected>2 s</option>
+      <option value="4">4 s</option><option value="8">8 s</option>
+    </select></label>
+    <label>Gain <select id="gain">
+      <option value="auto" selected>Fit</option><option value="1">1×</option>
+      <option value="2">2×</option><option value="4">4×</option><option value="8">8×</option>
+    </select></label>
+    <label>Height <select id="height">
+      <option value="70">Small</option><option value="110" selected>Medium</option><option value="170">Tall</option>
+    </select></label>
+  </div>
+</header>
+
+<div id="empty" class="note" hidden>
+  <p>No taps are publishing yet.</p>
+  <p>Put a <strong>Scrunch Live Ears</strong> plug-in on each track you want to see — kick, bass, whatever you are
+     working on — and they appear here as lanes, named and coloured from Live.</p>
+</div>
+
+<div id="lanes"></div>
+
+<section id="pair" hidden>
+  <h2>How two tracks sit together</h2>
+  <div class="row">
+    <select id="a"></select><span class="vs">against</span><select id="b"></select>
+    <button id="compare">Look</button>
+  </div>
+  <div id="verdict"></div>
+</section>
+
+<script src="/scope.js"></script>
+</body>
+</html>

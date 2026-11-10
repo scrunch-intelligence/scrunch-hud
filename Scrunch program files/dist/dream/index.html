@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14121c"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Dream">
+<link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/icon.svg"><link rel="apple-touch-icon" href="/icon.svg">
+<link rel="stylesheet" href="/style.css"><title>Dream</title></head>
+<body><main>
+<header><h1>Dream</h1><span>Scrunch</span></header>
+<p id="pair" class="warn" hidden>This phone isn't paired yet. Open the Dream link John sent you.</p>
+<section class="rec">
+  <button id="rec" class="big" aria-label="Record">●</button>
+  <p id="timer">Tap to hum</p>
+  <div class="row"><label class="chk"><input id="click" type="checkbox"> Click</label>
+  <label>bpm <input id="bpm" type="number" min="40" max="240" value="120" inputmode="numeric"></label></div>
+  <p class="muted">Free time is fine — Dream finds your tempo. Click is optional; use headphones with it.</p>
+</section>
+<p id="status" role="status" aria-live="polite"></p>
+<section id="take" hidden>
+  <input id="name" class="name" maxlength="40" aria-label="Take name">
+  <canvas id="roll" height="160"></canvas>
+  <p id="info" class="muted"></p>
+  <div class="row">
+    <select id="sound" aria-label="Sound"></select>
+    <select id="oct" aria-label="Octave"><option value="2">Oct +2</option><option value="1">Oct +1</option><option value="0" selected>Oct 0</option><option value="-1">Oct −1</option><option value="-2">Oct −2</option></select>
+    <select id="q" aria-label="Quantize"><option value="">No quantize</option><option>1/16</option><option>1/8</option><option>1/4</option></select>
+    <label class="chk"><input id="snap" type="checkbox" checked> In key</label>
+  </div>
+  <div class="row"><label>Play at <input id="speed" type="number" min="40" max="240" step="1" inputmode="numeric"> bpm</label><button id="speedReset" class="ghost">As hummed</button></div>
+  <div class="row btns">
+    <button id="play">▶ MIDI</button><button id="orig">▶ Voice</button><button id="both">▶ Both</button><button id="stop">■</button>
+  </div>
+  <div class="row btns"><button id="send" class="primary">Send to Scrunch</button><button id="dl">MIDI file</button><button id="rep">Find repeats</button><button id="del" class="ghost">Delete</button></div>
+</section>
+<section><h2>Takes</h2><p class="muted">Hummed the same tune more than once? Tick those takes and combine them into one best guess.</p><ul id="list"></ul><button id="comb" class="primary" hidden>Combine ticked takes</button></section>
+<label class="who">Your name <input id="who" maxlength="40" placeholder="Keith"></label>
+<p class="muted credit">Sounds: Salamander Grand Piano by Alexander Holm (CC-BY 3.0); MusyngKite General MIDI samples via midi-js-soundfonts.</p></main><script src="/synth.js"></script><script src="/app.js"></script></body></html>

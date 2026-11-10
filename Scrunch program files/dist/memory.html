@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scrunch Memory</title>
+<link rel="stylesheet" href="/scope.css">
+<style>
+main{max-width:60rem;margin:0 auto;padding:1rem;display:flex;flex-direction:column;gap:1rem}
+section{background:var(--panel);border:1px solid var(--edge);border-radius:8px;padding:1rem}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+td,th{text-align:left;padding:.35rem .4rem;border-bottom:1px solid var(--edge);vertical-align:top}
+th{color:var(--dim);font-weight:500}
+.dim{color:var(--dim)}
+form{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+input{background:#1b1e26;color:var(--ink);border:1px solid var(--edge);border-radius:5px;padding:.3rem .5rem;font:inherit}
+.stat{font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<header>
+  <h1>Your memory</h1>
+  <span id="status">loading…</span>
+  <div class="controls">
+    <button id="export">Export backup</button>
+    <button id="restore">Restore backup…</button>
+  </div>
+</header>
+<main>
+  <section>
+    <h2>Your words</h2>
+    <p class="dim">Words Scrunch treats as yours: the voice transcriber and the engineer both read these. Meanings are
+      what a word did before, on a given synth, not fixed rules.</p>
+    <table id="words"><thead><tr><th>Word</th><th>What Scrunch knows</th><th>Status</th><th></th></tr></thead><tbody></tbody></table>
+    <form id="add"><input id="term" placeholder="your word" required>
+      <input id="heard" placeholder="written wrongly as (optional)"><button>Add my word</button></form>
+  </section>
+  <section>
+    <h2>AI use</h2>
+    <p class="dim" id="usagenote"></p>
+    <table id="usage"><thead><tr><th>Day</th><th>Requests</th><th>AI calls</th><th>Tokens in</th><th>Tokens out</th><th>Failed</th></tr></thead><tbody></tbody></table>
+  </section>
+  <section>
+    <h2>What Scrunch has kept</h2>
+    <p class="stat" id="summary"></p>
+    <table id="events"><thead><tr><th>When</th><th>Your words</th><th>Synth</th><th></th></tr></thead><tbody></tbody></table>
+  </section>
+</main>
+<script src="/memory.js"></script>
+</body>
+</html>
